@@ -57,39 +57,80 @@ public class Userinterface {
                         scanner.nextLine();
 
                     }
-                    System.out.println("Input subscription status (ACTIVE/PASSIVE)");
-                    System.out.print("Status: ");
-                    boolean subscriptonActive = true;
-                    String subscriptionStatus = scanner.nextLine().trim().toLowerCase();
-                    if (subscriptionStatus.equals("active")) {
-                        subscriptonActive = true;
-                    } else if (subscriptionStatus.equals("passive")) {
-                        subscriptonActive = false;
+
+                    String subscriptionString;
+                    boolean subscriptionStatus = false;
+                    boolean validSubscriptionStatus = true;
+                    do {
+                        validSubscriptionStatus = true;
+                        System.out.println("Input subscription status (ACTIVE/PASSIVE)");
+                        System.out.print("Status: ");
+
+                        subscriptionString = scanner.nextLine().trim().toLowerCase();
+                        if (subscriptionString.equals("active")) {
+                            subscriptionStatus = true;
+                        }
+                        if (subscriptionString.equals("passive")) {
+                            subscriptionStatus = false;
+                        } else {
+                            System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
+                            validSubscriptionStatus = false;
+                        }
+                    } while (!validSubscriptionStatus);
+
+                    String ageGroup;
+                    boolean junior = false;
+                    boolean validAgeGroup = true;
+                    do {
+                        validAgeGroup = true;
+                        System.out.println("Select your age group: ('Junior' for under 18, 'Senior' for over 18");
+                        ageGroup = scanner.nextLine().trim().toLowerCase();
+                        if (ageGroup.equals("junior")) {
+                            junior = true;
+                        }
+                        if (ageGroup.equals("senior")) {
+                            junior = false;
+                        } else {
+                            System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
+                            validAgeGroup = false;
+                        }
+                    } while (!validAgeGroup);
+
+                    String exerciseType;
+                    boolean excerciseActive = false;
+                    boolean validType = true;
+                    do {
+                        validType = true;
+                    System.out.println("Input your exercise type ('Regular' or 'Competitive')");
+                    exerciseType = scanner.nextLine().trim().toLowerCase();
+                    if (exerciseType.equals("regular")) {
+                        excerciseActive = true;
+                    }
+                    if (exerciseType.equals("competitive")) {
+                        excerciseActive = false;
                     } else {
-                        System.out.println(color.ANSI_RED + "Invalid input"+ color.ANSI_RESET);
+                        System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
+                        validType = false;
                     }
-                    String ageGroup = null;
-                    if (age < 18) {
-                        ageGroup = "junior";
-                    } else if (age >= 18) {
-                        ageGroup = "senior";
-                    } else if (age >= 60) {
-                        ageGroup = "pensionist";
-                    }
-                    System.out.println("Input ");
-                    controller.addMember(name, age, subscriptonActive, ageGroup);
+                } while (!validType);
+
+
+                    controller.addMember(name, age, subscriptionStatus, ageGroup, exerciseType);
 
                     System.out.println(color.ANSI_GREEN + "Swimming member added" + color.ANSI_RESET);
-                    System.out.println("\u2500".repeat(50) + " ola");
-
+                    System.out.println("\u2500".repeat(50) + " ");
                 }
+
                 case "2", "two" -> {
-                    
+
+
                 }
                 case "9", "nine" -> {
                     System.exit(0);
-                    //TODO ADD SAVING ONTO CSV FILE
                 }
+
+                //TODO ADD SAVING ONTO CSV FIL
+
             }
         } while (run);
 
@@ -97,3 +138,4 @@ public class Userinterface {
     }
 
 }
+
