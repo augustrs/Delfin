@@ -80,7 +80,7 @@ public class Userinterface {
                     controller.addMember(name, age, subscriptonActive, ageGroup);
 
                     System.out.println(color.ANSI_GREEN + "Swimming member added" + color.ANSI_RESET);
-                    System.out.println("\u2500".repeat(50) + " ");
+                    System.out.println("\u2500".repeat(50) + " ola");
 
                 }
                 case "2", "two" -> {
