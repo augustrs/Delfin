@@ -5,7 +5,7 @@ import domain.Database;
 public class Controller {
     Database database = new Database();
 
-    public void addMember(String name, int age, boolean subscriptionActive, String ageGroup) {
-        database.addMember(name, age, subscriptionActive, ageGroup);
+    public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType) {
+        database.addMember(name, age, subscriptionActive, ageGroup, excerciseType);
     }
 }

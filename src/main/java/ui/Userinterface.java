@@ -2,6 +2,7 @@ package ui;
 
 import domain.Controller;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -55,7 +56,6 @@ public class Userinterface {
                     } else {
                         System.out.println(color.ANSI_RED + "You need to input a number" + color.ANSI_RESET);
                         scanner.nextLine();
-
                     }
 
                     String subscriptionString;
@@ -133,9 +133,6 @@ public class Userinterface {
 
             }
         } while (run);
-
-
     }
-
 }
 

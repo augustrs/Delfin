@@ -5,14 +5,14 @@ public class SwimmingClubMembers {
     private int age;
     private boolean subscriptionActive;
     private String ageGroup;
+    private String excerciseType;
 
-
-
-    public SwimmingClubMembers(String name, int age, boolean subscriptionActive, String ageGroup) {
+    public SwimmingClubMembers(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType) {
         this.name = name;
         this.age = age;
         this.subscriptionActive = subscriptionActive;
         this.ageGroup = ageGroup;
+        this.excerciseType = excerciseType;
     }
 
     public String getName() {
@@ -23,8 +23,11 @@ public class SwimmingClubMembers {
         return age;
     }
 
-
     public String getAgeGroup() {
         return ageGroup;
+    }
+
+    public String getExcerciseType() {
+        return excerciseType;
     }
 }
