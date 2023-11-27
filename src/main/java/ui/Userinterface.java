@@ -34,6 +34,7 @@ public class Userinterface {
     public void startProgram() {
         boolean run = true;
         String input;
+        controller.loadData();
         //TODO add LOADER FOR LOADING INITIAL DATA
         do {
             welcomeMessage();

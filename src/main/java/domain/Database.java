@@ -1,12 +1,13 @@
 package domain;
 
 import data.SwimmingClubMember;
-
+import data.Filehandler;
 import java.util.ArrayList;
 
 public class Database {
 
     ArrayList<SwimmingClubMember> members = new ArrayList<>();
+    Filehandler filehandler = new Filehandler();
 
     public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType) {
         members.add(new SwimmingClubMember(name, age, subscriptionActive, ageGroup, excerciseType));
@@ -30,6 +31,9 @@ public class Database {
    for (SwimmingClubMember member : members) {
             System.out.println(member);
         }
+    }
+    public ArrayList<SwimmingClubMember> getMembers() {
+        return members;
     }
 
 }
