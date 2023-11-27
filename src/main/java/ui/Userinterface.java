@@ -17,7 +17,7 @@ public class Userinterface {
                 "Welcome to the swimclub-database (Delfin)\n" + "\u2500".repeat(50) + "\n" +
                         "Interact with the menu by inputting the corresponding number\n" +
                         "(1) Add member\n" +
-                        "(2)\n" +
+                        "(2) Print members\n" +
                         "(4)\n" +
                         "(5)\n" +
                         "(6)\n" +
@@ -67,11 +67,8 @@ public class Userinterface {
                         System.out.print("Status: ");
 
                         subscriptionString = scanner.nextLine().trim().toLowerCase();
-                        if (subscriptionString.equals("active")) {
+                        if (subscriptionString.equals("active") || subscriptionString.equals("passive")) {
                             subscriptionStatus = true;
-                        }
-                        if (subscriptionString.equals("passive")) {
-                            subscriptionStatus = false;
                         } else {
                             System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
                             validSubscriptionStatus = false;
@@ -85,7 +82,7 @@ public class Userinterface {
                         validAgeGroup = true;
                         System.out.println("Select your age group: ('Junior' for under 18, 'Senior' for over 18");
                         ageGroup = scanner.nextLine().trim().toLowerCase();
-                        if (ageGroup.equals("junior")) {
+                        if (ageGroup.equals("junior") || ageGroup.equals("senior")) {
                             junior = true;
                         }
                         if (ageGroup.equals("senior")) {
@@ -101,18 +98,15 @@ public class Userinterface {
                     boolean validType = true;
                     do {
                         validType = true;
-                    System.out.println("Input your exercise type ('Regular' or 'Competitive')");
-                    exerciseType = scanner.nextLine().trim().toLowerCase();
-                    if (exerciseType.equals("regular")) {
-                        excerciseActive = true;
-                    }
-                    if (exerciseType.equals("competitive")) {
-                        excerciseActive = false;
-                    } else {
-                        System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
-                        validType = false;
-                    }
-                } while (!validType);
+                        System.out.println("Input your exercise type ('Regular' or 'Competitive')");
+                        exerciseType = scanner.nextLine().trim().toLowerCase();
+                        if (exerciseType.equals("regular") || exerciseType.equals("competitive")) {
+                            excerciseActive = true;
+                        } else {
+                            System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
+                            validType = false;
+                        }
+                    } while (!validType);
 
 
                     controller.addMember(name, age, subscriptionStatus, ageGroup, exerciseType);
@@ -122,7 +116,8 @@ public class Userinterface {
                 }
 
                 case "2", "two" -> {
-
+                    System.out.println("Printing:");
+                    controller.printMember();
 
                 }
                 case "9", "nine" -> {
@@ -135,4 +130,3 @@ public class Userinterface {
         } while (run);
     }
 }
-

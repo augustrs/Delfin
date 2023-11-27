@@ -30,4 +30,12 @@ public class SwimmingClubMembers {
     public String getExcerciseType() {
         return excerciseType;
     }
+
+    public String toString() {
+        return "Member: " + name +
+                ", age: " + age +
+                ", active subscription: " + subscriptionActive +
+                ", age group: " + ageGroup +
+                ", excercise type: " + excerciseType;
+    }
 }

@@ -8,4 +8,7 @@ public class Controller {
     public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType) {
         database.addMember(name, age, subscriptionActive, ageGroup, excerciseType);
     }
+    public void printMember() {
+        database.printMembers();
+    }
 }

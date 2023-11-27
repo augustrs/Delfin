@@ -12,5 +12,10 @@ public class Database {
         members.add(new SwimmingClubMembers(name, age, subscriptionActive, ageGroup, excerciseType));
 
     }
+    public void printMembers() {
+   for (SwimmingClubMembers member : members) {
+            System.out.println(member);
+        }
+    }
 
 }
