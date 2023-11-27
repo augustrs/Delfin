@@ -84,9 +84,6 @@ public class Userinterface {
                         ageGroup = scanner.nextLine().trim().toLowerCase();
                         if (ageGroup.equals("junior") || ageGroup.equals("senior")) {
                             junior = true;
-                        }
-                        if (ageGroup.equals("senior")) {
-                            junior = false;
                         } else {
                             System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
                             validAgeGroup = false;
