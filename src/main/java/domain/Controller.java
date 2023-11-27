@@ -11,4 +11,8 @@ public class Controller {
     public void printMember() {
         database.printMembers();
     }
+    public double checkSubscription () {
+        return database.checkSubscription();
+    }
+
 }

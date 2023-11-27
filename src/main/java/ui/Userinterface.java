@@ -118,6 +118,11 @@ public class Userinterface {
                     controller.printMember();
 
                 }
+                case "3", "three" -> {
+
+
+                    System.out.println(controller.checkSubscription() + ",- DKK");
+                }
                 case "9", "nine" -> {
                     System.exit(0);
                 }
