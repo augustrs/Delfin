@@ -1,13 +1,13 @@
 package data;
 
-public class SwimmingClubMembers {
+public class SwimmingClubMember {
     private String name;
     private int age;
     private boolean subscriptionActive;
     private String ageGroup;
     private String excerciseType;
 
-    public SwimmingClubMembers(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType) {
+    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType) {
         this.name = name;
         this.age = age;
         this.subscriptionActive = subscriptionActive;

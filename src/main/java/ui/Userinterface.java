@@ -1,4 +1,5 @@
 package ui;
+
 import domain.Controller;
 
 import java.awt.*;
@@ -16,7 +17,8 @@ public class Userinterface {
                 "Welcome to the swimclub-database (Delfin)\n" + "\u2500".repeat(50) + "\n" +
                         "Interact with the menu by inputting the corresponding number\n" +
                         "(1) Add member\n" +
-                        "(2) Print members\n" +
+                        "(2) Print all members\n" +
+                        "(3) Print revenue\n" +
                         "(4)\n" +
                         "(5)\n" +
                         "(6)\n" +
@@ -126,3 +128,4 @@ public class Userinterface {
         } while (run);
     }
 }
+
