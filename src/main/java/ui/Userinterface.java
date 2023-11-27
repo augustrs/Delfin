@@ -24,7 +24,7 @@ public class Userinterface {
                         "(6)\n" +
                         "(7)\n" +
                         "(8)\n" +
-                        "(9) EXIT\n" + "\u2500"
+                        "(9) EXIT\n" + "\u2500".repeat(50)
 
         );
 
