@@ -1,5 +1,4 @@
 package ui;
-
 import domain.Controller;
 
 import java.awt.*;
@@ -23,7 +22,7 @@ public class Userinterface {
                         "(6)\n" +
                         "(7)\n" +
                         "(8)\n" +
-                        "(9) EXIT"
+                        "(9) EXIT\n" + "\u2500"
 
         );
 
