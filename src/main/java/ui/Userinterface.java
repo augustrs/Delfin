@@ -3,6 +3,7 @@ package ui;
 import domain.Controller;
 
 import java.awt.*;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,7 +32,7 @@ public class Userinterface {
 
     }
 
-    public void startProgram() {
+    public void startProgram() throws FileNotFoundException {
         boolean run = true;
         String input;
         controller.loadData();
@@ -125,6 +126,7 @@ public class Userinterface {
                     System.out.println(controller.checkSubscription() + ",- DKK");
                 }
                 case "9", "nine" -> {
+                    controller.saveData();
                     System.exit(0);
                 }
 

@@ -30,6 +30,9 @@ public class SwimmingClubMember {
     public String getExcerciseType() {
         return excerciseType;
     }
+    public Boolean getSubscriptionActive() {
+        return subscriptionActive;
+    }
 
     public String toString() {
         return "Member: " + name +

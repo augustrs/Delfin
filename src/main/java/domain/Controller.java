@@ -21,9 +21,16 @@ public class Controller {
         return database.checkSubscription();
     }
 
-    public void loadData() {
+    public void loadData() throws FileNotFoundException {
         filehandler.loadMemberData(database.getMembers());
 
     }
+    public void saveData() {
+        try {
+        filehandler.saveMemberData(database.getMembers());
+    } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        }
+        }
 
-}
+    }
