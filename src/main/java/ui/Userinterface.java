@@ -155,14 +155,21 @@ public class Userinterface {
                         System.out.print("Input the event (if competitive, otherwise leave empty): ");
                         String event = scanner.nextLine();
 
-                        int placement = 0;
                         if (!event.isEmpty()) {
+                            System.out.print("Input the name of the event: ");
+                            String eventName = scanner.nextLine();
+                            selectedMember.setEvent(eventName);
+
                             System.out.print("Input the placement: ");
-                            placement = scanner.nextInt();
+                            int placement = scanner.nextInt();
+                            selectedMember.setPlacement(placement);
                             scanner.nextLine();
+                        } else {
+                            selectedMember.setEvent("");
+                            selectedMember.setPlacement(0);
                         }
 
-                        controller.addSwimmingResult(selectedMember.getName(), swimmingResultDateTime, event, placement);
+                        controller.addSwimmingResult(selectedMember.getName(), swimmingResultDateTime, event, selectedMember.getPlacement());
                         System.out.println(color.ANSI_GREEN + "Swimming result added for " + selectedMember.getName() + color.ANSI_RESET);
                         System.out.println("\u2500".repeat(50) + " ");
                     }

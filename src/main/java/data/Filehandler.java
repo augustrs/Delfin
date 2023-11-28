@@ -46,7 +46,7 @@ return null;
             memberOutput.print(",");
             memberOutput.print(member.getAgeGroup());
             memberOutput.print(",");
-            memberOutput.print(member.getExcerciseType());
+            memberOutput.print(member.getExerciseType());
         }
         memberOutput.close();
     }
