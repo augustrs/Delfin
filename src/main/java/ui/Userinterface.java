@@ -1,9 +1,13 @@
 package ui;
 
+import data.SwimmingClubMember;
 import domain.Controller;
 
 import java.awt.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Userinterface {
@@ -19,7 +23,7 @@ public class Userinterface {
                         "(1) Add member\n" +
                         "(2) Print all members\n" +
                         "(3) Print revenue\n" +
-                        "(4)\n" +
+                        "(4) Swimming Result\n" +
                         "(5)\n" +
                         "(6)\n" +
                         "(7)\n" +
@@ -123,6 +127,46 @@ public class Userinterface {
 
 
                     System.out.println(controller.checkSubscription() + ",- DKK");
+                }
+
+                case "4", "four" -> {
+                    System.out.println("Adding Swimming Result:");
+                    System.out.print("Input the member's name: ");
+                    String memberName = scanner.nextLine();
+
+
+                    ArrayList<SwimmingClubMember> foundMembers = controller.searchMember(memberName);
+
+                    if (foundMembers.isEmpty()) {
+                        System.out.println(color.ANSI_RED + "Member not found. Please make sure the name is correct." + color.ANSI_RESET);
+                    } else {
+
+                        SwimmingClubMember selectedMember = foundMembers.get(0);
+
+                        System.out.print("Input the swimming result date (yyyy-MM-dd): ");
+                        String dateString = scanner.nextLine();
+
+                        System.out.print("Input the swimming result time (HH:mm): ");
+                        String timeString = scanner.nextLine();
+
+                        String dateTimeString = dateString + " " + timeString;
+                        LocalDateTime swimmingResultDateTime = LocalDateTime.parse(dateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+
+                        System.out.print("Input the event (if competitive, otherwise leave empty): ");
+                        String event = scanner.nextLine();
+
+                        int placement = 0;
+                        if (!event.isEmpty()) {
+                            System.out.print("Input the placement: ");
+                            placement = scanner.nextInt();
+                            scanner.nextLine();
+                        }
+
+                        controller.addSwimmingResult(selectedMember.getName(), swimmingResultDateTime, event, placement);
+                        System.out.println(color.ANSI_GREEN + "Swimming result added for " + selectedMember.getName() + color.ANSI_RESET);
+                        System.out.println("\u2500".repeat(50) + " ");
+                    }
+
                 }
                 case "9", "nine" -> {
                     System.exit(0);

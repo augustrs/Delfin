@@ -36,4 +36,13 @@ public class Database {
         return members;
     }
 
+    public ArrayList<SwimmingClubMember> findMemberName(String memberName) {
+        ArrayList<SwimmingClubMember> foundMembers = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getName().equalsIgnoreCase(memberName)) {
+                foundMembers.add(member);
+            }
+        }
+        return foundMembers;
+    }
 }
