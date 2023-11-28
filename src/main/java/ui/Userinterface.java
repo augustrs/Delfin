@@ -6,8 +6,8 @@ import domain.Controller;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Userinterface {
@@ -35,7 +35,7 @@ public class Userinterface {
 
     }
 
-    public void startProgram() {
+    public void startProgram() throws FileNotFoundException {
         boolean run = true;
         String input;
         controller.loadData();
@@ -169,6 +169,7 @@ public class Userinterface {
 
                 }
                 case "9", "nine" -> {
+                    controller.saveData();
                     System.exit(0);
                 }
 

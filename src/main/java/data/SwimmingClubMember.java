@@ -66,6 +66,9 @@ public class SwimmingClubMember {
     public void setPlacement(int placement) {
         this.placement = placement;
     }
+    public Boolean getSubscriptionActive() {
+        return subscriptionActive;
+    }
 
     public String toString() {
         return "Member: " + name +

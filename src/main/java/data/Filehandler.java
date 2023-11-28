@@ -5,39 +5,49 @@ import domain.Database;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Filehandler {
 
-    public void loadMemberData(ArrayList<SwimmingClubMember> members) {
-        try {
-            File file = new File("members.csv");
-            Scanner scanner = new Scanner(file);
-            scanner.nextLine();
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] values = line.split(",");
-                if (values.length == 5) {
-                    String name = values[0];
-                    int age = Integer.parseInt(values[1]);
-                    boolean subscriptionActive = Boolean.parseBoolean(values[2]);
-                    String ageGroup = values[3];
-                    String exerciseType = values[4];
-
-                    SwimmingClubMember swimmingClubMember = new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType);
-                    members.add(swimmingClubMember);
-                } else {
-
-                }
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-
+    public void loadMemberData(ArrayList<SwimmingClubMember> members) throws FileNotFoundException {
+        members.clear();
+        Scanner loader = new Scanner(new File("members.csv"));
+        while (loader.hasNextLine()) {
+            String memberInfo = loader.nextLine();
+            SwimmingClubMember swimmingClubMember = parseCSV(memberInfo);
+            members.add(swimmingClubMember);
 
         }
     }
-    public void saveMemberData(SwimmingClubMember swimmingClubMember) {
 
+public SwimmingClubMember parseCSV(String line) {
+    try {
+                String[] values = line.split(",");
+                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4]);
+
+return swimmingClubMember;
+
+        } catch (NumberFormatException e) {
+            System.out.println("File not found");
+return null;
+
+        }
+    }
+    public void saveMemberData(ArrayList<SwimmingClubMember> members) throws FileNotFoundException {
+        PrintStream memberOutput = new PrintStream(new File ("members.csv"));
+        for (SwimmingClubMember member : members) {
+            memberOutput.print(member.getName());
+            memberOutput.print(",");
+            memberOutput.print(member.getAge());
+            memberOutput.print(",");
+            memberOutput.print(member.getSubscriptionActive());
+            memberOutput.print(",");
+            memberOutput.print(member.getAgeGroup());
+            memberOutput.print(",");
+            memberOutput.print(member.getExcerciseType());
+        }
+        memberOutput.close();
     }
 }
